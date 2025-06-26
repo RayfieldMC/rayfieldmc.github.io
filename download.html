@@ -73,12 +73,36 @@
       <h1>Download Wrapidly</h1>
       <p>Start your Minecraft server in seconds with our lightweight and customizable launcher.<br />Built for speed, simplicity, and performance.</p>
       <div class="download-buttons">
-        <a class="btn purple" href="https://github.com/Rarfield/Wrapidly/releases/download/v1.0.5-release/Wrapidly.jar">Download .JAR</a>
+        <a id="download-btn" class="btn purple" href="#">Download .JAR</a>
         <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
         <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">View Docs</a>
       </div>
-      <div class="version-info">Latest version: v1.0.5 • Released June 18, 2025</div>
+      <div id="latest-version" class="version-info">Fetching latest version...</div>
     </section>
   </main>
+
+  <script>
+    fetch("https://api.github.com/repos/Rarfield/Wrapidly/releases/latest")
+      .then(res => res.json())
+      .then(data => {
+        const version = data.tag_name;
+        const date = new Date(data.published_at).toLocaleDateString("en-GB", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        });
+
+        const asset = data.assets.find(file => file.name.endsWith(".jar"));
+        if (asset) {
+          document.getElementById("download-btn").href = asset.browser_download_url;
+        }
+
+        document.getElementById("latest-version").textContent = `Latest version: ${version} • Released ${date}`;
+      })
+      .catch(err => {
+        console.error("Failed to fetch latest release:", err);
+        document.getElementById("latest-version").textContent = "Could not load latest version info.";
+      });
+  </script>
 </body>
 </html>

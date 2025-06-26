@@ -5,8 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Wrapidly</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .download-section {
+      max-width: 1000px;
+      margin: 5rem auto;
+      padding: 3rem 2rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 80px rgba(168, 85, 247, 0.08);
+      text-align: center;
+    }
+
+    .download-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .download-section p {
+      font-size: 1.1rem;
+      color: #cfcfcf;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .download-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .version-info {
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    nav a.active {
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -25,23 +68,17 @@
     </div>
   </header>
 
-  <main class="hero">
-    <div class="hero-content">
-      <div class="hero-left">
-        <h1><span class="highlight">Download Wrapidly</span></h1>
-        <p>The fastest and easiest way to launch and manage your Minecraft server. Lightweight, customizable, and clean.</p>
-        <div class="hero-buttons">
-          <a class="btn purple" href="https://github.com/Rarfield/Wrapidly/releases/download/v1.0.5-release/Wrapidly.jar" download>
-            Download .JAR (v1.0.5)
-          </a>
-          <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">Wrapidly is open-source and actively maintained. <a href="https://github.com/Rarfield/Wrapidly">View on GitHub →</a></p>
+  <main>
+    <section class="download-section">
+      <h1>Download Wrapidly</h1>
+      <p>Start your Minecraft server in seconds with our lightweight and customizable launcher.<br />Built for speed, simplicity, and performance.</p>
+      <div class="download-buttons">
+        <a class="btn purple" href="https://github.com/Rarfield/Wrapidly/releases/download/v1.0.5-release/Wrapidly.jar">Download .JAR</a>
+        <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
+        <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/wiki">View Docs</a>
       </div>
-      <div class="hero-right">
-        <img src="assets/logo.svg" alt="Wrapidly Art" />
-      </div>
-    </div>
+      <div class="version-info">Latest version: v1.0.5 • Released June 24, 2025</div>
+    </section>
   </main>
 </body>
 </html>

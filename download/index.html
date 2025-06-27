@@ -2,64 +2,20 @@
 <html lang="en">
 <head>
   <script>
-  const path = window.location.pathname;
-
-  if (path.endsWith('/index.html')) {
-    const cleanPath = path.replace(/\/index\.html$/, '/');
-    window.location.replace(cleanPath);
-  } else if (path === '/index.html') {
-    window.location.replace('/');
-  }
+    const path = window.location.pathname;
+    if (path.endsWith('/index.html')) {
+      const cleanPath = path.replace(/\/index\.html$/, '/');
+      window.location.replace(cleanPath);
+    } else if (path === '/index.html') {
+      window.location.replace('/');
+    }
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Wrapidly</title>
   <link rel="stylesheet" href="/style.css" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    .download-section {
-      max-width: 1000px;
-      margin: 5rem auto;
-      padding: 3rem 2rem;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 0 80px rgba(168, 85, 247, 0.08);
-      text-align: center;
-    }
-
-    .download-section h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .download-section p {
-      font-size: 1.1rem;
-      color: #cfcfcf;
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .download-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .version-info {
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    nav a.active {
-      color: white;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -81,13 +37,13 @@
   <main>
     <section class="download-section">
       <h1>Download Wrapidly</h1>
-      <p>Start your Minecraft server in seconds with our lightweight and customizable launcher.<br />Built for speed, simplicity, and performance.</p>
-      <div class="download-buttons">
+      <p>Start your Minecraft server in seconds with our lightweight and customizable launcher.<br>Built for speed, simplicity, and performance.</p>
+      <div class="hero-buttons">
         <a id="download-btn" class="btn purple" href="#">Download .JAR</a>
         <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
         <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">View Docs</a>
       </div>
-      <div id="latest-version" class="version-info">Fetching latest version...</div>
+      <div id="latest-version" class="version-info" style="margin-top: 1.5rem; color: #999;">Fetching latest version...</div>
     </section>
   </main>
 

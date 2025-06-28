@@ -4,8 +4,7 @@
   <script>
     const path = window.location.pathname;
     if (path.endsWith('/index.html')) {
-      const cleanPath = path.replace(/\/index\.html$/, '/');
-      window.location.replace(cleanPath);
+      window.location.replace(path.replace(/\/index\.html$/, '/'));
     } else if (path === '/index.html') {
       window.location.replace('/');
     }
@@ -14,19 +13,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Wrapidly</title>
   <link rel="stylesheet" href="/style.css" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .download-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .download-card {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: 0 0 60px rgba(168, 85, 247, 0.06);
+      text-align: center;
+      width: 100%;
+    }
+
+    .download-card h1 {
+      font-size: 2.8rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .download-card p {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 2.5rem;
+      max-width: 680px;
+      margin-inline: auto;
+    }
+
+    .download-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .version-info {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    nav a.active {
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .download-card h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="nav-container">
       <div class="logo-left">
-        <img src="assets/logo.svg" alt="Wrapidly Logo" />
+        <img src="/assets/logo.svg" alt="Wrapidly Logo" />
         <span>Wrapidly</span>
       </div>
       <nav>
-        <a href="../">Home</a>
-        <a href="" class="active">Download</a>
+        <a href="/">Home</a>
+        <a href="/download" class="active">Download</a>
         <a href="https://github.com/Rarfield/Wrapidly">GitHub</a>
         <a href="https://rarfield.github.io/docs/introduction">Docs</a>
         <a href="https://discord.gg/PJct6Wvr" class="btn discord">Join Discord</a>
@@ -35,16 +92,20 @@
   </header>
 
   <main>
-    <section class="download-section">
-      <h1>Download Wrapidly</h1>
-      <p>Start your Minecraft server in seconds with our lightweight and customizable launcher.<br>Built for speed, simplicity, and performance.</p>
-      <div class="hero-buttons">
-        <a id="download-btn" class="btn purple" href="#">Download .JAR</a>
-        <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
-        <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">View Docs</a>
+    <div class="download-wrapper">
+      <div class="download-card">
+        <h1>Download Wrapidly</h1>
+        <p>Launch and control your Minecraft server like a boss — single `.jar` setup, smart config, webhook support and more. Let's go.</p>
+
+        <div class="download-actions">
+          <a id="download-btn" class="btn purple" href="#">Download .JAR</a>
+          <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
+          <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">View Docs</a>
+        </div>
+
+        <div id="latest-version" class="version-info">Fetching latest version...</div>
       </div>
-      <div id="latest-version" class="version-info" style="margin-top: 1.5rem; color: #999;">Fetching latest version...</div>
-    </section>
+    </div>
   </main>
 
   <script>

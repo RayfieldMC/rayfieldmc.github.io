@@ -6,14 +6,15 @@
 }
 
 html, body {
-  height: 100%;
   font-family: 'Poppins', sans-serif;
   background: radial-gradient(circle at 30% 30%, #101010, #050505);
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
   background-attachment: fixed;
   color: #f0f0f0;
   overflow-x: hidden;
 }
+
 
 /* Header Styles */
 header {

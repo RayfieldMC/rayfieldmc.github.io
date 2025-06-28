@@ -252,3 +252,19 @@ nav a.active {
   font-size: 0.9rem;
   color: #888;
 }
+
+.site-footer {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-top: 4rem;
+  backdrop-filter: blur(6px);
+}
+
+.site-footer p {
+  margin: 0;
+}

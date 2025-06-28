@@ -1,40 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    const path = window.location.pathname;
+    if (path.endsWith('/index.html')) window.location.replace(path.replace('/index.html', '/'));
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Wrapidly</title>
-  <link rel="stylesheet" href="../style.css" />
-  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml" />
-  <script>
-    const path = window.location.pathname;
-    if (path.endsWith('/index.html')) {
-      const cleanPath = path.replace(/\/index\.html$/, '/');
-      window.location.replace(cleanPath);
-    }
-  </script>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <header>
     <div class="nav-container">
       <div class="logo-left">
-        <img src="../assets/logo.svg" alt="Logo" />
+        <img src="/assets/logo.svg" alt="Logo" />
         <span>Wrapidly</span>
       </div>
       <nav>
-        <a href="../">Home</a>
-        <a href="" class="active">Download</a>
+        <a href="/">Home</a>
+        <a href="/download" class="active">Download</a>
         <a href="https://github.com/Rarfield/Wrapidly">GitHub</a>
         <a href="https://rarfield.github.io/docs/introduction">Docs</a>
+        <a href="https://discord.gg/PJct6Wvr" class="btn discord">Discord</a>
       </nav>
     </div>
   </header>
-  <main class="download-section">
-    <h1>Download Wrapidly</h1>
-    <p>Click the button below to grab the latest version of the ultimate Minecraft bootstrapper.</p>
-    <div class="download-buttons">
-      <a class="btn purple" href="https://github.com/Rarfield/Wrapidly/releases/latest/download/Wrapidly.jar">Download .JAR</a>
+  <main class="hero">
+    <div class="hero-content">
+      <div class="hero-left">
+        <h1><span class="highlight">Download</span> Wrapidly</h1>
+        <p>Start your Minecraft server in seconds with our powerful launcher.</p>
+        <div class="hero-buttons">
+          <a class="btn purple" id="download-btn" href="#">Download .JAR</a>
+          <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
+        </div>
+        <div class="version-info" id="latest-version">Fetching latest version...</div>
+      </div>
     </div>
   </main>
+  <script>
+    fetch("https://api.github.com/repos/Rarfield/Wrapidly/releases/latest")
+      .then(res => res.json())
+      .then(data => {
+        const version = data.tag_name;
+        const date = new Date(data.published_at).toLocaleDateString("en-GB", {
+          year: "numeric", month: "long", day: "numeric"
+        });
+        const asset = data.assets.find(f => f.name.endsWith(".jar"));
+        if (asset) document.getElementById("download-btn").href = asset.browser_download_url;
+        document.getElementById("latest-version").textContent = `Latest version: ${version} • Released ${date}`;
+      })
+      .catch(() => {
+        document.getElementById("latest-version").textContent = "Failed to fetch release.";
+      });
+  </script>
 </body>
 </html>

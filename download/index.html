@@ -3,56 +3,76 @@
 <head>
   <script>
     const path = window.location.pathname;
-    if (path.endsWith('/index.html')) window.location.replace(path.replace('/index.html', '/'));
+    if (path.endsWith('/index.html')) {
+      const cleanPath = path.replace(/\/index\.html$/, '/');
+      window.location.replace(cleanPath);
+    } else if (path === '/index.html') {
+      window.location.replace('/');
+    }
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Wrapidly</title>
   <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header>
     <div class="nav-container">
       <div class="logo-left">
-        <img src="/assets/logo.svg" alt="Logo" />
+        <img src="/assets/logo.svg" alt="Wrapidly Logo" />
         <span>Wrapidly</span>
       </div>
       <nav>
         <a href="/">Home</a>
         <a href="/download" class="active">Download</a>
-        <a href="https://github.com/Rarfield/Wrapidly">GitHub</a>
         <a href="https://rarfield.github.io/docs/introduction">Docs</a>
-        <a href="https://discord.gg/PJct6Wvr" class="btn discord">Discord</a>
+        <a href="https://github.com/Rarfield/Wrapidly">GitHub</a>
+        <a href="https://discord.gg/PJct6Wvr" class="btn discord">Join Discord</a>
       </nav>
     </div>
   </header>
+
   <main class="hero">
-    <div class="hero-content">
+    <div class="hero-content" style="flex-direction: row-reverse;">
       <div class="hero-left">
-        <h1><span class="highlight">Download</span> Wrapidly</h1>
-        <p>Start your Minecraft server in seconds with our powerful launcher.</p>
+        <h1><span class="highlight">Download</span><br />Get Wrapidly</h1>
+        <p>Latest builds, stable releases, and everything you need to start launching Minecraft servers like a boss.</p>
         <div class="hero-buttons">
-          <a class="btn purple" id="download-btn" href="#">Download .JAR</a>
+          <a id="download-btn" class="btn purple" href="#">Download .JAR</a>
           <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
+          <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">View Docs</a>
         </div>
-        <div class="version-info" id="latest-version">Fetching latest version...</div>
+        <div id="latest-version" class="version-info" style="margin-top: 1rem; color: #aaa;">Fetching latest version...</div>
+      </div>
+      <div class="hero-right">
+        <img src="/assets/logo.svg" alt="Wrapidly Art" />
       </div>
     </div>
   </main>
+
   <script>
     fetch("https://api.github.com/repos/Rarfield/Wrapidly/releases/latest")
       .then(res => res.json())
       .then(data => {
         const version = data.tag_name;
         const date = new Date(data.published_at).toLocaleDateString("en-GB", {
-          year: "numeric", month: "long", day: "numeric"
+          year: "numeric",
+          month: "long",
+          day: "numeric"
         });
-        const asset = data.assets.find(f => f.name.endsWith(".jar"));
-        if (asset) document.getElementById("download-btn").href = asset.browser_download_url;
+
+        const asset = data.assets.find(file => file.name.endsWith(".jar"));
+        if (asset) {
+          document.getElementById("download-btn").href = asset.browser_download_url;
+        }
+
         document.getElementById("latest-version").textContent = `Latest version: ${version} • Released ${date}`;
       })
-      .catch(() => {
-        document.getElementById("latest-version").textContent = "Failed to fetch release.";
+      .catch(err => {
+        console.error("Failed to fetch latest release:", err);
+        document.getElementById("latest-version").textContent = "Could not load latest version info.";
       });
   </script>
 </body>

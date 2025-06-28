@@ -22,45 +22,95 @@
       align-items: center;
       justify-content: center;
       padding: 6rem 2rem;
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
     }
 
-    .download-card {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(14px);
-      border-radius: 20px;
-      padding: 3rem 2rem;
-      box-shadow: 0 0 60px rgba(168, 85, 247, 0.06);
-      text-align: center;
-      width: 100%;
-    }
-
-    .download-card h1 {
-      font-size: 2.8rem;
-      color: #fff;
+    .download-icon {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 0.8rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
       margin-bottom: 1rem;
     }
 
-    .download-card p {
-      font-size: 1.1rem;
-      color: #ccc;
-      margin-bottom: 2.5rem;
-      max-width: 680px;
-      margin-inline: auto;
+    .download-wrapper h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
     }
 
-    .download-actions {
+    .download-wrapper h1 span {
+      color: #a855f7;
+    }
+
+    .download-wrapper p {
+      font-size: 1.1rem;
+      color: #cfcfcf;
+      text-align: center;
+      margin-bottom: 2rem;
+      max-width: 700px;
+    }
+
+    .download-btn-box {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       gap: 1rem;
-      margin-bottom: 1.8rem;
+    }
+
+    .download-primary {
+      background: linear-gradient(to right, #4f46e5, #6366f1);
+      border: none;
+      border-radius: 12px;
+      padding: 1rem 2.5rem;
+      font-size: 1.05rem;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .download-primary:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
     }
 
     .version-info {
       font-size: 0.9rem;
       color: #aaa;
+      margin-top: 0.5rem;
+    }
+
+    .download-secondary {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .download-secondary a {
+      padding: 0.6rem 1.4rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.2s ease;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .download-secondary a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
     }
 
     nav a.active {
@@ -68,8 +118,8 @@
     }
 
     @media (max-width: 600px) {
-      .download-card h1 {
-        font-size: 2rem;
+      .download-wrapper h1 {
+        font-size: 2.2rem;
       }
     }
   </style>
@@ -93,17 +143,18 @@
 
   <main>
     <div class="download-wrapper">
-      <div class="download-card">
-        <h1>Download Wrapidly</h1>
-        <p>Launch and control your Minecraft server like a boss — single `.jar` setup, smart config, webhook support and more. Let's go.</p>
+      <div class="download-icon">📥</div>
+      <h1>Get <span>Wrapidly</span></h1>
+      <p>Download Wrapidly, the customizable Minecraft server bootstrapper that streamlines launching, monitoring, and webhooks — all from one sleek `.jar`.</p>
 
-        <div class="download-actions">
-          <a id="download-btn" class="btn purple" href="#">Download .JAR</a>
-          <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
-          <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">View Docs</a>
-        </div>
-
+      <div class="download-btn-box">
+        <a id="download-btn" class="download-primary" href="#">Download .JAR</a>
         <div id="latest-version" class="version-info">Fetching latest version...</div>
+      </div>
+
+      <div class="download-secondary">
+        <a href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
+        <a href="https://rarfield.github.io/docs/introduction">View Docs</a>
       </div>
     </div>
   </main>

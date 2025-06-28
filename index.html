@@ -1,25 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+  const path = window.location.pathname;
+
+  if (path.endsWith('/index.html')) {
+    const cleanPath = path.replace(/\/index\.html$/, '/');
+    window.location.replace(cleanPath);
+  } else if (path === '/index.html') {
+    window.location.replace('/');
+  }
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="description" content="Wrapidly is a customizable Minecraft server bootstrapper with webhooks, command remapping, and powerful monitoring features." />
+  <meta name="keywords" content="Minecraft, server, launcher, bootstrapper, Wrapidly, modded Minecraft, Minecraft server tool" />
+  <meta name="author" content="Rarfield" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Wrapidly - Minecraft Server Bootstrapper" />
+  <meta property="og:description" content="Launch, monitor, and webhook your Minecraft server like a pro." />
+  <meta property="og:image" content="https://rarfield.github.io/banner.png" />
+  <meta property="og:url" content="https://rarfield.github.io/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter (for Discord) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wrapidly - Minecraft Server Bootstrapper" />
+  <meta name="twitter:description" content="Launch, monitor, and webhook your Minecraft server like a pro." />
+  <meta name="twitter:image" content="https://rarfield.github.io/banner.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wrapidly</title>
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
 </head>
 <body>
   <header>
     <div class="nav-container">
       <div class="logo-left">
-        <img src="/assets/logo.svg" alt="Wrapidly Logo" />
+        <img src="assets/logo.svg" alt="Wrapidly Logo" />
         <span>Wrapidly</span>
       </div>
       <nav>
-        <a href="/" class="active">Home</a>
-        <a href="/download">Download</a>
-        <a href="https://rarfield.github.io/docs/introduction">Docs</a>
+        <a href="" class="active">Home</a>
+        <a href="download/">Download</a>
         <a href="https://github.com/Rarfield/Wrapidly">GitHub</a>
+        <a href="https://rarfield.github.io/docs/introduction">Docs</a>
         <a href="https://discord.gg/PJct6Wvr" class="btn discord">Join Discord</a>
       </nav>
     </div>
@@ -28,16 +54,17 @@
   <main class="hero">
     <div class="hero-content">
       <div class="hero-left">
-        <h1><span class="highlight">Wrapidly</span><br />Custom Minecraft<br />Server Bootstrapper</h1>
-        <p>Launch, monitor, and manage your Minecraft server with command remapping, webhooks, and insane customizability. All packed in one single .jar file.</p>
+        <h1><span class="highlight">Wrapidly</span><br />Highly customizable<br />Minecraft server bootstrapper</h1>
+        <p>Launch, monitor, remap commands and hook your server to webhooks — all with a single .jar.</p>
         <div class="hero-buttons">
-          <a class="btn purple" href="/download">Download</a>
+          <a class="btn purple" href="download/">Download</a>
           <a class="btn discord" href="https://discord.gg/PJct6Wvr">Join Discord</a>
           <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly">GitHub</a>
+          <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">Docs</a>
         </div>
       </div>
       <div class="hero-right">
-        <img src="/assets/logo.svg" alt="Wrapidly Art" />
+        <img src="assets/logo.svg" alt="Wrapidly Art" />
       </div>
     </div>
   </main>
@@ -46,22 +73,22 @@
     <div class="feature">
       <div class="icon">⚡</div>
       <div class="content">
-        <h3>Optimized Performance</h3>
-        <p>Stable and efficient. Built to handle serious Minecraft servers with no compromises.</p>
+        <h3>Powerful and optimized</h3>
+        <p>Stable and performant, it's designed for long term use</p>
       </div>
     </div>
     <div class="feature">
       <div class="icon">🧬</div>
       <div class="content">
-        <h3>Fully Customizable</h3>
-        <p>Edit everything via config — from JVM args to webhook formats, all under your control.</p>
+        <h3>Useful and customizable</h3>
+        <p>Contains many useful features and fixes, all of them can be customized in config</p>
       </div>
     </div>
     <div class="feature">
       <div class="icon">📦</div>
       <div class="content">
-        <h3>Always Up-To-Date</h3>
-        <p>Latest dependencies and modern tech stack. Stay on the edge, effortlessly.</p>
+        <h3>Latest dependencies</h3>
+        <p>Modern, keep dependencies up-to-date</p>
       </div>
     </div>
   </section>

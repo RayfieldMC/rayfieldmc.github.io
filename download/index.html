@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    const path = window.location.pathname;
+    if (path.endsWith('/index.html')) {
+      const cleanPath = path.replace(/\/index\.html$/, '/');
+      window.location.replace(cleanPath);
+    } else if (path === '/index.html') {
+      window.location.replace('/');
+    }
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Wrapidly</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header>
     <div class="nav-container">
       <div class="logo-left">
-        <img src="assets/logo.svg" alt="Wrapidly Logo" />
+        <img src="/assets/logo.svg" alt="Wrapidly Logo" />
         <span>Wrapidly</span>
       </div>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="download.html" class="active">Download</a>
-        <a href="https://github.com/Rarfield/Wrapidly">GitHub</a>
+        <a href="/">Home</a>
+        <a href="/download" class="active">Download</a>
         <a href="https://rarfield.github.io/docs/introduction">Docs</a>
+        <a href="https://github.com/Rarfield/Wrapidly">GitHub</a>
         <a href="https://discord.gg/PJct6Wvr" class="btn discord">Join Discord</a>
       </nav>
     </div>
   </header>
 
   <main class="hero">
-    <div class="hero-content">
+    <div class="hero-content" style="flex-direction: row-reverse;">
       <div class="hero-left">
-        <h1><span class="highlight">Download</span> Wrapidly</h1>
-        <p>Kickstart your Minecraft experience with the most powerful, sleek, and customizable server bootstrapper ever.</p>
+        <h1><span class="highlight">Download</span><br />Get Wrapidly</h1>
+        <p>Latest builds, stable releases, and everything you need to start launching Minecraft servers like a boss.</p>
         <div class="hero-buttons">
           <a id="download-btn" class="btn purple" href="#">Download .JAR</a>
           <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
-          <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">Read Docs</a>
+          <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">View Docs</a>
         </div>
-        <div id="latest-version" class="version-info">Fetching latest version...</div>
+        <div id="latest-version" class="version-info" style="margin-top: 1rem; color: #aaa;">Fetching latest version...</div>
       </div>
       <div class="hero-right">
-        <img src="assets/logo.svg" alt="Wrapidly" />
+        <img src="/assets/logo.svg" alt="Wrapidly Art" />
       </div>
     </div>
   </main>

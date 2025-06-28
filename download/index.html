@@ -14,8 +14,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Wrapidly</title>
   <link rel="stylesheet" href="/style.css" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .download-container {
+      max-width: 1200px;
+      margin: 5rem auto;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .download-left {
+      flex: 1 1 400px;
+    }
+
+    .download-left h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .download-left .highlight {
+      color: #a855f7;
+    }
+
+    .download-left p {
+      font-size: 1.1rem;
+      color: #cfcfcf;
+      max-width: 500px;
+    }
+
+    .download-right {
+      flex: 1 1 300px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 0 60px rgba(168, 85, 247, 0.1);
+      text-align: center;
+    }
+
+    .download-right .btn {
+      width: 100%;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .version-info {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+
+    nav a.active {
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -25,31 +84,28 @@
         <span>Wrapidly</span>
       </div>
       <nav>
-        <a href="/">Home</a>
-        <a href="/download" class="active">Download</a>
-        <a href="https://rarfield.github.io/docs/introduction">Docs</a>
+        <a href="../">Home</a>
+        <a href="" class="active">Download</a>
         <a href="https://github.com/Rarfield/Wrapidly">GitHub</a>
+        <a href="https://rarfield.github.io/docs/introduction">Docs</a>
         <a href="https://discord.gg/PJct6Wvr" class="btn discord">Join Discord</a>
       </nav>
     </div>
   </header>
 
-  <main class="hero">
-    <div class="hero-content" style="flex-direction: row-reverse;">
-      <div class="hero-left">
-        <h1><span class="highlight">Download</span><br />Get Wrapidly</h1>
-        <p>Latest builds, stable releases, and everything you need to start launching Minecraft servers like a boss.</p>
-        <div class="hero-buttons">
-          <a id="download-btn" class="btn purple" href="#">Download .JAR</a>
-          <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
-          <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">View Docs</a>
-        </div>
-        <div id="latest-version" class="version-info" style="margin-top: 1rem; color: #aaa;">Fetching latest version...</div>
+  <main>
+    <section class="download-container">
+      <div class="download-left">
+        <h1>Get <span class="highlight">Wrapidly</span></h1>
+        <p>Start your Minecraft server in seconds with our lightweight and customizable launcher. Built for speed, simplicity, and performance.</p>
       </div>
-      <div class="hero-right">
-        <img src="/assets/logo.svg" alt="Wrapidly Art" />
+      <div class="download-right">
+        <a id="download-btn" class="btn purple" href="#">Download .JAR</a>
+        <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
+        <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">View Docs</a>
+        <div id="latest-version" class="version-info">Fetching latest version...</div>
       </div>
-    </div>
+    </section>
   </main>
 
   <script>

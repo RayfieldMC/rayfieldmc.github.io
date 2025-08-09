@@ -86,8 +86,8 @@
       <nav>
         <a href="../">Home</a>
         <a href="" class="active">Download</a>
-        <a href="https://github.com/Rarfield/Wrapidly">GitHub</a>
-        <a href="https://rarfield.github.io/docs/introduction">Docs</a>
+        <a href="https://github.com/RayfieldMC/Wrapidly">GitHub</a>
+        <a href="https://raryieldmc.github.io/docs/introduction">Docs</a>
         <a href="https://discord.gg/3BGG8tcvVR" class="btn discord">Join Discord</a>
       </nav>
     </div>
@@ -101,15 +101,15 @@
       </div>
       <div class="download-right">
         <a id="download-btn" class="btn purple" href="#">Download .JAR</a>
-        <a class="btn secondary" href="https://github.com/Rarfield/Wrapidly/releases">Other Versions</a>
-        <a class="btn secondary" href="https://rarfield.github.io/docs/introduction">View Docs</a>
+        <a class="btn secondary" href="https://github.com/RayfieldMC/Wrapidly/releases">Other Versions</a>
+        <a class="btn secondary" href="https://rayfieldmc.github.io/docs/introduction">View Docs</a>
         <div id="latest-version" class="version-info">Fetching latest version...</div>
       </div>
     </section>
   </main>
 
   <script>
-    fetch("https://api.github.com/repos/Rarfield/Wrapidly/releases/latest")
+    fetch("https://api.github.com/repos/RayfieldMC/Wrapidly/releases/latest")
       .then(res => res.json())
       .then(data => {
         const version = data.tag_name;
